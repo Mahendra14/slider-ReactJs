@@ -13,6 +13,16 @@ function App() {
     if(index > changeIndex){
      setIndex(0);
     }
+  },[index,people]);
+
+  //for autoslide = useEffect + setInterval
+  useEffect(()=>{
+    let slider = setInterval(()=>{
+      setIndex(index+1);
+    },3000);
+
+    //to get out of loop hell
+    return () => clearInterval(slider);
   },[index]);
   return(
     <section className="section">
