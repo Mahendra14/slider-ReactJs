@@ -5,6 +5,15 @@ import data from './data';
 function App() {
   const [people,setPeople] = useState(data);
   const [index,setIndex] = useState(0);
+  useEffect(()=>{
+    let changeIndex = people.length-1;
+    if(index < 0 ){
+      setIndex(changeIndex);
+    }
+    if(index > changeIndex){
+     setIndex(0);
+    }
+  },[index]);
   return(
     <section className="section">
       <div className="title">
